@@ -1,6 +1,7 @@
 # Hop Hop
 
-![Hop Hop Logo](./images/logo.svg)
+<img src="./images/logo.svg" width="200px"></img>
+
 _🕵️‍♂️ Hop hop gadget scripts!_
 
 This stupid script is used to make easier, for me, to run the scripts I have in my code folder. So, instead of going into my folders, I can configure _Hop Hop_ as a quick way to access them from anywhere in my system.

@@ -1,8 +1,11 @@
-# Hop Hop 
+# Hop Hop
+
+![Hop Hop Logo](./images/logo.svg)
+_🕵️‍♂️ Hop hop gadget scripts!_
 
 This stupid script is used to make easier, for me, to run the scripts I have in my code folder. So, instead of going into my folders, I can configure _Hop Hop_ as a quick way to access them from anywhere in my system.
 
-For example, I have a folder with many scripts 
+For example, I have a folder with many scripts
 
 ```
 scripts/
@@ -44,6 +47,6 @@ HOP_HOP_PATH=~/scripts
 
 After that, just _hop-hop_ around.
 
-## It may be that... 
+## It may be that...
 
 Yes. The name comes from what _Inspector Gadget_ say before using one of his gadgets. Or at least what it said in the Italian version.

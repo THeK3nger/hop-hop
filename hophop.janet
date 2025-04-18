@@ -1,14 +1,13 @@
 (import path)
 (use sh)
 
-### Functions
-
 (defn get-command-type
-  "Check if the given base script name is a python, sh or executable."
+  "Check if the given base script name is one of the supported types."
   [base]
   (cond
     (not (nil? (os/stat (string base ".sh")))) :sh
     (not (nil? (os/stat (string base ".py")))) :py
+    (not (nil? (os/stat (string base ".janet")))) :janet
     :exe))
 
 (defn command-to-path
@@ -21,16 +20,18 @@
     (case t
       :sh (string base ".sh")
       :py (string base ".py")
+      :janet (string base ".janet")
       :exe base)))
 
 (defn run-command
   "Run the command. If command is `foo.bar` it will look into `/foo/bar` in
-  HOPHOP_PATH and run it."
+  HOP_HOP_DIR and run it."
   [command args]
   (let [command-path (command-to-path command)]
     (cond
       (string/has-suffix? ".sh" command-path) (os/execute [command-path ;args])
       (string/has-suffix? ".py" command-path) ($ "python3" ,command-path ;args)
+      (string/has-suffix? ".janet" command-path) ($ "janet" ,command-path ;args)
       (os/execute [(command-path)]))))
 
 (defn hophop-main

@@ -49,5 +49,8 @@
       (os/exit 1)))
   (let [args (dyn :args)]
     (if (= "-h" (get args 1))
-      (print "Usage: hophop [-h] COMMAND..")))
+      (do 
+        (print "Usage: hophop [-h] COMMAND..")
+        (os/exit 0))))
+        
   (hophop-main))

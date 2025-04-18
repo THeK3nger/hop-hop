@@ -1,2 +1,5 @@
 testscripts
 build/
+
+# Mac OS Crap
+.DS_Store

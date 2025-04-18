@@ -29,24 +29,31 @@ Or, if they are nested,
 hophop utils.dothat  # or hh utils.dothat
 ```
 
+## Features
+
+At the moment, _Hop Hop_ can run `.sh`, `.py`, `.janet` and executable files. I may add support for other scripts in the future.
+
 ## How to install
 
-First, let's be sure we have all the dependencies.
+I assume that you have installed [Janet](https://janet-lang.org) and `jpm` on your system. Then, you can just clone this repository and run:
 
 ```bash
-jpm install path
-jpm install sh
+jpm install
 ```
 
-## How to use
-
-Set up the environment variable `HOP_HOP_PATH` to point to the folder where you have your scripts. For example, if you have a folder called `scripts` in your home directory, you can set this line in your `.bashrc` or `.zshrc` file (or whatever):
+Then, you have to set up the environment variable `HOP_HOP_DIR` to point to the folder where you have your scripts. For example, if you have a folder called `scripts` in your home directory, you can set this line in your `.bashrc` or `.zshrc` file (or whatever):
 
 ```bash
 HOP_HOP_PATH=~/scripts
 ```
-
 After that, just _hop-hop_ around.
+
+## How to use
+
+Now you can just run `hophop foo.bar.baz` to run the script in `$HOP_HOP_DIR/foo/bar/baz.py` (for example).
+
+To be even faster, you can alias `hophop` to `hh` (like I do).
+
 
 ## It may be that...
 

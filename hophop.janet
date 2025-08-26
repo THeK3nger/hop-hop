@@ -27,6 +27,8 @@
   "Run the command. If command is `foo.bar` it will look into `/foo/bar` in
   HOP_HOP_DIR and run it."
   [command args]
+
+  ##(printf "Running command: %s with args %j\n" command args)
   (let [command-path (command-to-path command)]
     (cond
       (string/has-suffix? ".sh" command-path) (os/execute [command-path ;args])
@@ -34,13 +36,35 @@
       (string/has-suffix? ".janet" command-path) ($ "janet" ,command-path ;args)
       (os/execute [(command-path)]))))
 
+(defn is-directory? [path]
+  (= :directory (get (os/stat path) :mode)))
+
+(defn list-commands-rec
+  "List all available commands recursively with indentation."
+  [path indent]
+  (each cmd (os/dir path)
+    (let [full-path (path/join path cmd)
+          indent-str (string/repeat "  " indent)]
+      (printf "%s- %s" indent-str cmd)
+      (when (is-directory? full-path)
+        (list-commands-rec full-path (inc indent))))))
+
+(defn list-commands
+  "List all available commands in HOP_HOP_DIR"
+  []
+  (print "Available commands:")
+  (def hophoppath (os/getenv "HOP_HOP_DIR"))
+  (list-commands-rec hophoppath 0))
+
 (defn hophop-main
   "Main function to run the hophop command"
   []
   (let [args (dyn :args)]
     (def [_ command & rest] args)
-    # (printf "Running %j" (command-to-path command))
-    (run-command command rest)))
+    (case command
+      "help" (printf "Hop Hop <Something>!\nUSAGE: hophop help | hophop list | hophop <command> [args]")
+      "list" (list-commands)
+      (run-command command rest))))
 
 (defn main
   [& args]
@@ -50,8 +74,8 @@
       (os/exit 1)))
   (let [args (dyn :args)]
     (if (= "-h" (get args 1))
-      (do 
+      (do
         (print "Usage: hophop [-h] COMMAND..")
         (os/exit 0))))
-        
+
   (hophop-main))

@@ -46,6 +46,7 @@ Then, you have to set up the environment variable `HOP_HOP_DIR` to point to the 
 ```bash
 HOP_HOP_PATH=~/scripts
 ```
+
 After that, just _hop-hop_ around.
 
 ## How to use
@@ -54,6 +55,7 @@ Now you can just run `hophop foo.bar.baz` to run the script in `$HOP_HOP_DIR/foo
 
 To be even faster, you can alias `hophop` to `hh` (like I do).
 
+You can use `hophop list` to see all available commands.
 
 ## It may be that...
 

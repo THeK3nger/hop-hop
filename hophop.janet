@@ -31,10 +31,10 @@
   ##(printf "Running command: %s with args %j\n" command args)
   (let [command-path (command-to-path command)]
     (cond
-      (string/has-suffix? ".sh" command-path) (os/execute [command-path ;args])
+      (string/has-suffix? ".sh" command-path) (os/execute @["bash" command-path ;args] :p)
       (string/has-suffix? ".py" command-path) ($ "python3" ,command-path ;args)
       (string/has-suffix? ".janet" command-path) ($ "janet" ,command-path ;args)
-      (os/execute [(command-path)]))))
+      (os/execute @[command-path] :p))))
 
 (defn is-directory? [path]
   (= :directory (get (os/stat path) :mode)))

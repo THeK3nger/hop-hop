@@ -8,6 +8,7 @@
     (not (nil? (os/stat (string base ".sh")))) :sh
     (not (nil? (os/stat (string base ".py")))) :py
     (not (nil? (os/stat (string base ".janet")))) :janet
+    (not (nil? (os/stat (string base ".exs")))) :elixir
     :exe))
 
 (defn command-to-path
@@ -21,6 +22,7 @@
       :sh (string base ".sh")
       :py (string base ".py")
       :janet (string base ".janet")
+      :elixir (string base ".exs")
       :exe base)))
 
 (defn run-command
@@ -34,6 +36,7 @@
       (string/has-suffix? ".sh" command-path) (os/execute @["bash" command-path ;args] :p)
       (string/has-suffix? ".py" command-path) ($ "python3" ,command-path ;args)
       (string/has-suffix? ".janet" command-path) ($ "janet" ,command-path ;args)
+      (string/has-suffix? ".exs" command-path) ($ "elixir" ,command-path ;args)
       (os/execute @[command-path] :p))))
 
 (defn is-directory? [path]

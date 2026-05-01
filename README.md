@@ -31,7 +31,7 @@ hophop utils.dothat  # or hh utils.dothat
 
 ## Features
 
-At the moment, _Hop Hop_ can run `.sh`, `.py`, `.janet` and executable files. I may add support for other scripts in the future.
+At the moment, _Hop Hop_ can run `.sh`, `.py`, `.janet`, `.exs` and executable files. I may add support for other scripts in the future.
 
 ## How to install
 

@@ -44,7 +44,7 @@ jpm install
 Then, you have to set up the environment variable `HOP_HOP_DIR` to point to the folder where you have your scripts. For example, if you have a folder called `scripts` in your home directory, you can set this line in your `.bashrc` or `.zshrc` file (or whatever):
 
 ```bash
-HOP_HOP_PATH=~/scripts
+HOP_HOP_DIR=~/scripts
 ```
 
 After that, just _hop-hop_ around.

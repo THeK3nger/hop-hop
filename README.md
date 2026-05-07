@@ -57,6 +57,28 @@ To be even faster, you can alias `hophop` to `hh` (like I do).
 
 You can use `hophop list` to see all available commands.
 
+You can also print plain command names, which is useful for scripts and shell completion:
+
+```bash
+hophop list --plain
+```
+
+## Shell completion
+
+Hop Hop can generate zsh completion:
+
+```bash
+hophop completion zsh > ~/.zsh/completions/_hophop
+```
+
+Make sure the completion directory is in your `fpath` before `compinit` runs in your `.zshrc`:
+
+```bash
+fpath=(~/.zsh/completions $fpath)
+autoload -Uz compinit
+compinit
+```
+
 ## It may be that...
 
 Yes. The name comes from what _Inspector Gadget_ say before using one of his gadgets. Or at least what it said in the Italian version.

@@ -3,7 +3,7 @@
   :description "Instant script runner."
 
   # Optional urls to git repositories that contain required artifacts.
-  :dependencies ["https://github.com/janet-lang/path.git" "https://github.com/andrewchambers/janet-sh"])
+  :dependencies ["https://github.com/janet-lang/path.git"])
 
 (declare-executable
  :name "hophop"

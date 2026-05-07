@@ -63,6 +63,25 @@ You can also print plain command names, which is useful for scripts and shell co
 hophop list --plain
 ```
 
+### Command Descriptions
+
+If you are like me, and you always forget which command does what, you can add optional descriptions to commands:
+
+```bash
+hophop describe foo.bar.baz "Run the baz helper"
+```
+
+Descriptions are stored in `$HOP_HOP_DIR/.hophop.meta` and are shown by `hophop list`:
+
+```bash
+hophop list
+```
+
+```text
+Available commands:
+foo.bar.baz  Run the baz helper
+```
+
 ## Shell completion
 
 Hop Hop can generate zsh completion:
